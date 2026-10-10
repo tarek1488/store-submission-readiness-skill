@@ -68,6 +68,17 @@ report flags practical gaps between your policy and your code; it is not legal a
 Built for Expo (including continuous native generation) and bare React Native. On other stacks
 the skill says so and offers the policy half of the audit only.
 
+## Tested on
+
+The skills were developed and evaluated against one real Expo app with accounts, auto-renewable
+subscriptions, health-related data, voice and AI features, and a backend. Guidance for ads,
+location, user-generated content, children's apps and physical goods is included but has not
+been run against a real app yet, so read those parts of a report with more care.
+
+If the skill misses a rejection reason or flags something wrongly on your app, please
+[open an issue](https://github.com/tarek1488/store-submission-readiness-skill/issues) with the
+finding. That is how the lighter areas improve.
+
 ## Contributing
 
 Guidance both skills share lives in `shared/references/`. Edit it there, then copy it into each
