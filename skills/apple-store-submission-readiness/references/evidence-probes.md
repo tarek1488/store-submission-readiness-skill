@@ -165,14 +165,16 @@ module. Report the number and where it came from.
 
 ## 5. Project gates
 
-Run the checks the project already has, and report every failure verbatim:
+Run the checks the project already has, and report every failure verbatim. Use its own package
+manager (the lockfile tells you which) and the script names in its `package.json`; the list
+below is the usual shape, not a set of commands to run blindly:
 
 ```bash
 npx expo-doctor
-npm run typecheck   # or npx tsc --noEmit
-npm run lint
-npm run format:check
-npx jest --silent   # or the project's own test script
+<pm> run typecheck      # or npx tsc --noEmit if there is no script
+<pm> run lint
+<pm> run format:check
+<pm> run test           # if the script starts a watcher, call the test runner once instead
 ```
 
 These are not store requirements, but a failing gate is a reason to delay a submission, and
@@ -199,9 +201,13 @@ Hard-coded identifiers drift from the real ones, and the result is a flow that f
 released app:
 
 ```bash
-grep -rnE "<bundle-id-prefix>|apps\.apple\.com|play\.google\.com/store|market://|itms-apps://" src app.json
-grep -rnE "REPLACE_|CHANGEME|YOUR_[A-Z_]+|TODO|example\.com" src app.json eas.json
+grep -rnE "<bundle-id-prefix>|apps\.apple\.com|play\.google\.com/store|market://|itms-apps://" <source-dirs> app.json
+grep -rnE "REPLACE_|CHANGEME|YOUR_[A-Z_]+|TODO|example\.com" <source-dirs> app.json eas.json
 ```
+
+`<source-dirs>` is wherever this project keeps its code — `src`, `app`, `components`, or
+several of them. Take it from the layout you saw in §1 rather than assuming a folder name; a
+search of a folder that doesn't exist comes back clean and proves nothing.
 
 Compare every store link, package name and app ID found in the source against the bundle
 identifier and package name in the resolved config. A store link built from a slightly different

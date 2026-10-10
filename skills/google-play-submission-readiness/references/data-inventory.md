@@ -15,8 +15,8 @@ auditing it. Work outward in three rings:
    request. These are different declarations, and the difference is often the most important
    fact in the whole report.
 3. **Third-party SDKs and services** — anything that receives data: authentication providers,
-   payment or subscription mediators, crash and analytics services, push delivery, model and
-   speech providers, hosted databases, search or vector services.
+   payment or subscription mediators, crash and analytics services, ad networks, push delivery,
+   maps, email or messaging services, AI and speech providers, hosted databases and search.
 
 For each item record: stored or transient, linked to the user's identity or not, purpose,
 destination, and what happens to it on account deletion.
