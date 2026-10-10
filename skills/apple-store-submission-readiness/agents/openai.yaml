@@ -1,0 +1,7 @@
+interface:
+  display_name: "App Store Submission Readiness"
+  short_description: "Read-only App Store pre-submission audit"
+  default_prompt: "Use $apple-store-submission-readiness to audit this app for App Store submission and write the readiness report."
+
+policy:
+  allow_implicit_invocation: false

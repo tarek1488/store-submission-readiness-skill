@@ -1,0 +1,13 @@
+{
+  "name": "store-submission-readiness",
+  "displayName": "Store Submission Readiness",
+  "version": "0.1.0",
+  "description": "Read-only pre-submission audits for the Apple App Store and Google Play. Inspects an Expo or React Native codebase, fetches the current store policies, reads your published privacy policy and terms, and writes an evidence-backed readiness report. Never modifies your code.",
+  "author": {
+    "name": "tarek1488",
+    "url": "https://github.com/tarek1488"
+  },
+  "repository": "https://github.com/tarek1488/store-submission-readiness",
+  "license": "MIT",
+  "keywords": ["app-store", "google-play", "expo", "react-native", "compliance", "audit"]
+}

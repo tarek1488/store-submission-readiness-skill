@@ -1,0 +1,7 @@
+interface:
+  display_name: "Google Play Submission Readiness"
+  short_description: "Read-only Google Play pre-submission audit"
+  default_prompt: "Use $google-play-submission-readiness to audit this app for Google Play submission and write the readiness report."
+
+policy:
+  allow_implicit_invocation: false

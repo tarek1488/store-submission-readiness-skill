@@ -1,0 +1,74 @@
+{
+  "skill_name": "store-submission-readiness",
+  "notes": "Prompts use {{PLACEHOLDERS}}. Point them at an Expo or React Native app you can read, fill the URLs, and run each prompt with and without the skill. Use at least two apps that differ - one with accounts and purchases, one with neither - so the skill is tested on what an app lacks as well as what it has.",
+  "evals": [
+    {
+      "id": 0,
+      "name": "apple-full-featured-app",
+      "skill": "apple-store-submission-readiness",
+      "prompt": "we're about to ship to the app store and i do not want a rejection. it's an expo app at {{APP_PATH}} with the backend at {{BACKEND_PATH}}. it has sign-in and in-app purchases. privacy policy is {{PRIVACY_URL}}, terms {{TERMS_URL}}, support is {{SUPPORT_CONTACT}}. can you tell me if apple would reject it and what i'd have to fix?",
+      "expected_output": "An evidence-backed readiness report with numbered blockers citing file:line and quoted Apple policy, a privacy and permissions matrix, manual App Store Connect tasks, and a go/no-go verdict. No project files modified.",
+      "files": [],
+      "assertions": [
+        "Left the audited repositories untouched (git status identical before and after)",
+        "States a feature profile for the app before the store-specific review, with evidence for what is absent",
+        "Resolved the native iOS configuration rather than reading app.json alone (introspection or prebuild template evidence shown)",
+        "Checks the public App Store listing to decide whether this is a first submission or an update",
+        "At least three findings cite a concrete file path with a line number",
+        "Quotes at least one Apple requirement fetched from developer.apple.com during the run, not recalled",
+        "Lists the third parties that receive user data and checks each against the published policy",
+        "Includes a data matrix mapping app data to App Privacy categories",
+        "Every item under Submission Blockers is a defect with file, config or page evidence that would stop this submission; no blocker is an unverifiable console state",
+        "Console-only items appear under manual verification, with the screen to check named",
+        "The report is at most 450 lines",
+        "Ends with a Go/No-Go verdict covering technical, policy and console readiness",
+        "Uses placeholders for reviewer demo credentials instead of inventing any",
+        "Did not open a local .env file",
+        "Did not run the backend's test suite",
+        "Told the user the report path inside the app project before writing, or wrote to the default and said where"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "play-target-api-and-data-safety",
+      "skill": "google-play-submission-readiness",
+      "prompt": "need to push the android build to play console this week. project is {{APP_PATH}}, backend at {{BACKEND_PATH}}. does it actually meet the current target api requirement? are there any permissions i'd have to justify in the console? and what should i be answering in data safety? account deletion page is {{DELETION_URL}} and the policy is {{PRIVACY_URL}}",
+      "expected_output": "Effective target/compile/min SDK shown with its source, full attributed permission list, proposed Data Safety mapping, the declarations every app files, manual Play Console tasks, go/no-go verdict. No project files modified.",
+      "files": [],
+      "assertions": [
+        "Left the audited repositories untouched (git status identical before and after)",
+        "States a feature profile for the app before the store-specific review, with evidence for what is absent",
+        "States the effective Android target SDK as a number and names where that number comes from, rather than inferring it from the framework version",
+        "Quotes the current Play target API requirement and its enforcement date from a google.com support page fetched during the run",
+        "Lists the effective Android permissions and attributes each to its source, including at least one inherited from a dependency's own manifest",
+        "Says which permissions need a console declaration form and which do not",
+        "Proposes a Data Safety mapping, quoting Google's definition wherever a category choice is not obvious",
+        "Answers the Health apps declaration for this app, including 'no health features' when that is the case",
+        "Every item under Submission Blockers is a defect with file, config or page evidence that would stop this submission; no blocker is an unverifiable console state",
+        "Console-only items appear under manual verification, with the screen to check named",
+        "The report is at most 450 lines",
+        "Ends with a Go/No-Go verdict covering technical, policy and console readiness",
+        "Did not open a local .env file",
+        "Did not run the backend's test suite"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "simple-app-no-accounts-no-purchases",
+      "skill": "apple-store-submission-readiness",
+      "prompt": "small expo app at {{SIMPLE_APP_PATH}}, no login, nothing for sale, no backend. privacy policy is at {{PRIVACY_URL}}. is it ready for the app store?",
+      "expected_output": "A short report. Account, deletion, purchase and subscription sections are each one N/A line with the evidence of absence. Findings cover only what the app has. No project files modified.",
+      "files": [],
+      "assertions": [
+        "Left the audited repository untouched (git status identical before and after)",
+        "The feature profile records that the app has no accounts and no purchases, with evidence",
+        "Account deletion, Sign in with Apple and subscription requirements are marked N/A in one line each, not reported as findings or missing features",
+        "No finding recommends adding a feature the app does not need (a paywall, an account system, a deletion flow)",
+        "Still resolves the native configuration and reports the permissions and usage strings that actually ship",
+        "Still fetches the current Apple requirements and checks the build toolchain requirement",
+        "The report is clearly shorter than a full-featured app's report (under 250 lines)",
+        "Ends with a Go/No-Go verdict covering technical, policy and console readiness"
+      ]
+    }
+  ]
+}
