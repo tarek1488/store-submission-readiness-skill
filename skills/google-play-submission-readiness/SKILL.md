@@ -46,14 +46,16 @@ a hang.
 
 ### Phase 0 — Model advice and scope
 
-Read `references/host-and-models.md`, detect the host, and give the one-line model
-recommendation. Continue regardless of the answer.
+Open with one line of advice: this audit rewards the strongest reasoning model the host offers,
+because weaker models tend to accept source configuration at face value and mark things verified
+that were never checked. Then continue on whatever model is running.
 
 Then locate the app. In a monorepo it may not be the working directory, so find the
-`package.json` that depends on `expo` or `react-native` and confirm that folder with the user.
-Establish the stack from `references/evidence-probes.md` §1. The structural probes assume Expo or
-bare React Native. For a different stack — native Kotlin, Flutter, Capacitor — say so plainly,
-offer the policy half of the audit only, and let the user decide whether that's useful.
+`package.json` that depends on `expo` or `react-native`. Don't stop to confirm the folder here;
+the interview does that. Establish the stack from `references/evidence-probes.md` §1. The
+structural probes assume Expo or bare React Native. For a different stack — native Kotlin,
+Flutter, Capacitor — say so plainly, offer the policy half of the audit only, and let the user
+decide whether that's useful.
 
 Then write the feature profile from §1: what this app has, and what it doesn't. Every app is
 different, and the profile is what scopes the rest of the run. Requirements for features the
@@ -62,7 +64,8 @@ app lacks are `N/A` with the evidence of absence, not findings and not padding.
 ### Phase 1 — Interview
 
 Run the batched interview in `references/interview.md`. Ask once, before the long probes, and
-skip anything the user already told you when they invoked the skill. "I don't know" is
+skip anything the user already told you when they invoked the skill. It also confirms the app
+folder and the report path, which makes it the only planned stop of the run. "I don't know" is
 acceptable and becomes a manual-verification item.
 
 ### Phase 2 — Current requirements
@@ -85,10 +88,10 @@ Work through `references/evidence-probes.md`. Two things carry most of the weigh
   ones that need a console justification are usually not in the project's own config at all.
 
 While reading, trace the flows in §10 that this app has — first launch, permission-gated
-features, purchase, restore, deletion, store links — and note dead ends, controls that only produce errors, and
-missing error handling. If the user gave you the backend's location, read it: what the server
-stores and which services it calls decide most of the Data Safety answers. Read it; don't run its
-tests.
+features, purchase, restore, deletion, store links — and note dead ends, controls that only
+produce errors, and missing error handling. If the user gave you the backend's location, read
+it: what the server stores and which services it calls decide most of the Data Safety answers.
+Read it; don't run its tests.
 
 Check the public Play listing early (§1), and if the user has a production bundle on disk, read
 its merged manifest (§3). Both replace an assumption with something you saw.
@@ -122,10 +125,11 @@ hide a code problem that would make a declaration false.
 
 ### Phase 6 — Report
 
-Write the report using `references/report-template.md`, to
-`docs/app-submission-readiness-google-play.md` inside the audited app's project. Tell the user
-that path and ask whether they want another before writing. Keep it to the length the template asks for. Then summarise in chat: the verdict,
-the blocker count, and the single most important next action.
+Write the report using `references/report-template.md`, to the path settled in the interview —
+by default `docs/app-submission-readiness-google-play.md` inside the audited app's project.
+Don't stop to ask again: the user should come back to a finished report. Keep it to the length
+the template asks for. Then summarise in chat: where the report is, the verdict, the blocker
+count, and the single most important next action.
 
 Offer to hand the fixes to a normal session. Don't apply them here.
 

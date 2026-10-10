@@ -173,11 +173,10 @@ actually sends notifications, and that the pre-prompt, if there is one, says wha
 ## Health and medical content
 
 Applies to apps that give health, fitness or medical information or measurements. They attract
-more scrutiny. Accuracy claims
-about health measurements need supporting data and methodology. Search the product copy for
-claims of diagnosis, treatment, clinical validation or guaranteed outcomes, and check that
-estimated values are labelled as estimates in the interface rather than presented as measured
-facts.
+more scrutiny. Accuracy claims about health measurements need supporting data and methodology.
+Search the product copy for claims of diagnosis, treatment, clinical validation or guaranteed
+outcomes, and check that estimated values are labelled as estimates in the interface rather
+than presented as measured facts.
 
 ## Metadata and device support
 

@@ -13,9 +13,9 @@ Each store gets its own file, so running the second audit never overwrites the f
 
 These paths are inside the app project you located at the start — the audited app's own
 repository, so the report travels with the code it describes. Use that project's root if it has
-no `docs/` directory. Tell the user the path and ask whether they want a different one before
-writing; if they name one, use it. In a run where nobody can answer, write to the default and
-say where the file went. Write nothing else.
+no `docs/` directory. The interview states this path and lets the user name a different one, so
+use what was settled there and don't ask again before writing. In a run where nobody can answer,
+write to the default and say where the file went. Write nothing else.
 
 ## Status glyphs
 

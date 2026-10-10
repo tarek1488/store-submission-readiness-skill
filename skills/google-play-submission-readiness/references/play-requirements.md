@@ -93,10 +93,11 @@ the audit:
   health features are offered. For an app with health or fitness functionality, select the
   categories that match the real feature set. Don't select medical categories for an app that
   tracks rather than diagnoses or treats, and don't understate categories to avoid the form.
-- **Account deletion.** Applies only if the app lets users create an account. Play expects an in-app deletion path *and* a publicly reachable web
-  resource where deletion can be requested. The web page must load, be scoped to this app or
-  developer, and make the request path easy to find. Verify the page exists, loads, and
-  describes what deletion removes in terms that match the implementation.
+- **Account deletion.** Applies only if the app lets users create an account. Play expects an
+  in-app deletion path *and* a publicly reachable web resource where deletion can be requested.
+  The web page must load, be scoped to this app or developer, and make the request path easy to
+  find. Verify the page exists, loads, and describes what deletion removes in terms that match
+  the implementation.
 - **Content rating, target audience, ads declaration.** Check these against the app's actual
   content and monetization, and against any age limit stated in the terms.
 - **App access.** If sign-in is required, reviewers need instructions and credentials. Leave
@@ -121,15 +122,15 @@ the audit:
   in-app reporting and blocking, and terms that define what is objectionable.
 - **Generated content.** If the app produces text, images or audio with a generative model,
   Play expects a way to report offensive output from inside the app.
-- **Health and medical claims.** For apps with health features, search product copy for diagnosis, treatment, clinical
-  validation or guaranteed outcomes. Check that estimated or automated values are labelled as
-  estimates.
+- **Health and medical claims.** For apps with health features, search product copy for
+  diagnosis, treatment, clinical validation or guaranteed outcomes. Check that estimated or
+  automated values are labelled as estimates.
 - **Deceptive behaviour and misleading claims.** Compare what the store listing and paywall
   promise against what the code delivers, including words like "unlimited" where a server-side
   limit exists.
-- **Subscriptions.** If the app has them: price, billing period, renewal, and trial terms disclosed before purchase;
-  cancellation and management reachable; entitlement correct across expiry, cancellation and
-  billing retry.
+- **Subscriptions.** If the app has them: price, billing period, renewal, and trial terms
+  disclosed before purchase; cancellation and management reachable; entitlement correct across
+  expiry, cancellation and billing retry.
 
 ## The OAuth signing pitfall
 

@@ -1,0 +1,14 @@
+{
+  "name": "tarek1488",
+  "description": "Read-only pre-submission audits for the Apple App Store and Google Play.",
+  "owner": {
+    "name": "tarek1488",
+    "url": "https://github.com/tarek1488"
+  },
+  "plugins": [
+    {
+      "name": "store-submission-readiness",
+      "source": "./"
+    }
+  ]
+}
